@@ -35,13 +35,6 @@
         :get-link="makeTradeLink" />
     </div>
     <stack-value :filters="itemFilters" :item="item"/>
-    <div v-if="showSupportLinks" class="mt-auto border border-dashed p-2">
-      <div class="mb-1">{{ t('Support development on') }} <a href="https://patreon.com/awakened_poe_trade" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank"><img class="inline h-5" src="/images/Patreon.svg"></a></div>
-      <i18n-t keypath="app.thanks_3rd_party" tag="div">
-        <a href="https://poeprices.info" target="_blank" class="bg-gray-900 px-1 rounded">poeprices.info</a>
-        <a href="https://poe.ninja/support" target="_blank" class="bg-gray-900 px-1 rounded">poe.ninja</a>
-      </i18n-t>
-    </div>
   </div>
 </template>
 
@@ -65,8 +58,6 @@ import { FilterPreset } from './filters/interfaces'
 import type { StatFilter } from './filters/interfaces'
 import { PriceCheckWidget } from '../overlay/interfaces'
 import { useLeagues } from '@/web/background/Leagues'
-
-let _showSupportLinksCounter = 0
 
 export default defineComponent({
   name: 'CheckedItem',
@@ -218,19 +209,6 @@ export default defineComponent({
       }
     }
 
-    const showSupportLinks = ref(false)
-    watch(() => [props.item, doSearch.value], ([cItem, cInteracted], [pItem]) => {
-      if (_showSupportLinksCounter >= 13 && (!cInteracted || tradeAPI.value === 'bulk')) {
-        showSupportLinks.value = true
-        _showSupportLinksCounter = 0
-      } else {
-        showSupportLinks.value = false
-        if (cItem !== pItem) {
-          _showSupportLinksCounter += 1
-        }
-      }
-    })
-
     const { t } = useI18n()
 
     function markMergeGroups (stats: StatFilter[]) {
@@ -283,7 +261,6 @@ export default defineComponent({
       showPredictedPrice,
       show,
       handleSearchMouseenter,
-      showSupportLinks,
       presets: computed(() => presets.value.presets.map(preset =>
         ({ id: preset.id, active: (preset.id === presets.value.active) }))),
       selectPreset (id: string) {
