@@ -2,6 +2,12 @@
 
 This document describes the manual package build procedure for developers who modify poeAT-trJp and want to create a local packaged application.
 
+## Platform
+
+This project is currently developed and packaged for Windows.
+
+The commands below are intended for Windows environments. They can be run from Command Prompt or PowerShell.
+
 ## Purpose
 
 Use this guide when you need to package the Electron application locally after making changes.
@@ -23,51 +29,51 @@ app/renderer
 app/main
 ```
 
-Run the commands below from the repository root unless a step says otherwise.
+Run the commands below from the repository root.
 
 ## 1. Install and build renderer
 
-```powershell
-Push-Location .\app\renderer
+```cmd
+cd app\renderer
 npm install
 npm run build
-Pop-Location
+cd ..\..
 ```
 
 ## 2. Install main process dependencies
 
-```powershell
-Push-Location .\app\main
+```cmd
+cd app\main
 npm install
-Pop-Location
+cd ..\..
 ```
 
 ## 3. Rebuild native dependencies for Electron
 
 `better-sqlite3` is a native dependency and must be rebuilt for the Electron runtime used by this project.
 
-```powershell
-Push-Location .\app\main
+```cmd
+cd app\main
 npm rebuild better-sqlite3 --runtime=electron --target=40.9.1 --disturl=https://electronjs.org/headers
-Pop-Location
+cd ..\..
 ```
 
 If the Electron version changes, update the `--target` value to match the Electron version used by `app/main/package.json`.
 
 ## 4. Build main process
 
-```powershell
-Push-Location .\app\main
+```cmd
+cd app\main
 npm run build
-Pop-Location
+cd ..\..
 ```
 
 ## 5. Package the application
 
-```powershell
-Push-Location .\app\main
+```cmd
+cd app\main
 npm run package
-Pop-Location
+cd ..\..
 ```
 
 ## Verification
