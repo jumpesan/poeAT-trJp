@@ -1,0 +1,307 @@
+import { CLIENT_STRINGS as _$ } from '@/assets/data'
+import type { ParsedStat } from './stat-translations'
+import { ModifierType } from './modifiers'
+
+export const SCOURGE_LINES = [
+  ' (scourge)',
+  '（変容）',
+  ' (変容)',
+]
+
+export const ENCHANT_LINES = [
+  ' (enchant)',
+  '（エンチャント）',
+  ' (エンチャント)',
+]
+
+export const IMPLICIT_LINES = [
+  ' (implicit)',
+  '（暗黙）',
+  ' (暗黙)',
+]
+
+export const FRACTURED_LINES = [
+  ' (fractured)',
+  '（フラクチャー）',
+  ' (フラクチャー)',
+]
+
+export const FOULBORN_LINES = [
+  ' (mutated)',
+]
+
+export interface ParsedModifier {
+  info: ModifierInfo
+  stats: ParsedStat[]
+}
+
+export interface ModifierInfo {
+  type: ModifierType
+  generation?: 'suffix' | 'prefix' | 'corrupted' | 'eldritch' | 'foulborn'
+  name?: string
+  tier?: number
+  rank?: number
+  tags: string[]
+  rollIncr?: number
+}
+
+function isFoulbornModifierText (typeText: string, modText: string): boolean {
+  const candidates = [
+    _$.FOULBORN_MODIFIER,
+    'Foulborn',
+    'ファウルボーン',
+    'フォールボーン',
+  ].filter(Boolean)
+
+  return candidates.some(candidate =>
+    typeText.includes(candidate) || modText.includes(candidate)
+  )
+}
+
+export function parseModInfoLine (line: string): ModifierInfo {
+  // console.log('[MOD_INFO_LINE]', line)
+  const [modText, xText2, xText3] = line
+    .slice(1, -1)
+    .split('\u2014')
+    .map(_ => _.trim())
+
+  let type = ModifierType.Explicit
+  let generation: ModifierInfo['generation']
+  let name: ModifierInfo['name']
+  let tier: ModifierInfo['tier']
+  let rank: ModifierInfo['rank']
+
+  // console.log('[MOD_INFO_MATCH]', modText)
+
+  if (_$.EATER_IMPLICIT.test(modText) || _$.EXARCH_IMPLICIT.test(modText)) {
+    const match = modText.match(_$.EATER_IMPLICIT) ?? modText.match(_$.EXARCH_IMPLICIT)!
+
+    type = ModifierType.Implicit
+    generation = 'eldritch'
+
+    switch (match.groups!.rank) {
+      case _$.ELDRITCH_MOD_R1: rank = 1; break
+      case _$.ELDRITCH_MOD_R2: rank = 2; break
+      case _$.ELDRITCH_MOD_R3: rank = 3; break
+      case _$.ELDRITCH_MOD_R4: rank = 4; break
+      case _$.ELDRITCH_MOD_R5: rank = 5; break
+      case _$.ELDRITCH_MOD_R6: rank = 6; break
+    }
+  } else {
+    const match = modText.match(_$.MODIFIER_LINE)
+    if (!match) {
+      throw new Error('Invalid regex for mod info line')
+    }
+
+    const rawType = match.groups!.type
+
+    if (isFoulbornModifierText(rawType, modText)) {
+      generation = 'foulborn'
+    } else if (rawType.startsWith(_$.FRACTURED_PREFIX)) {
+      type = ModifierType.Fractured
+      generation = 'prefix'
+    } else if (rawType.startsWith(_$.FRACTURED_SUFFIX)) {
+      type = ModifierType.Fractured
+      generation = 'suffix'
+    } else if (rawType.startsWith(_$.CRAFTED_PREFIX)) {
+      type = ModifierType.Crafted
+      generation = 'prefix'
+    } else if (rawType.startsWith(_$.CRAFTED_SUFFIX)) {
+      type = ModifierType.Crafted
+      generation = 'suffix'
+    }
+
+    /*
+    console.log('[MOD_INFO_TYPE]', {
+      modText,
+      type: match.groups!.type,
+      fracturedPrefix: _$.FRACTURED_PREFIX,
+      fracturedSuffix: _$.FRACTURED_SUFFIX,
+      craftedPrefix: _$.CRAFTED_PREFIX,
+      craftedSuffix: _$.CRAFTED_SUFFIX
+    })
+    */
+
+    if (generation == null) {
+      switch (match.groups!.type) {
+        case _$.IMPLICIT_MODIFIER:
+        case _$.CORRUPTED_IMPLICIT:
+          type = ModifierType.Implicit; break
+        case _$.FRACTURED_PREFIX:
+        case _$.FRACTURED_SUFFIX:
+          type = ModifierType.Fractured; break
+        case _$.CRAFTED_PREFIX:
+        case _$.CRAFTED_SUFFIX:
+          type = ModifierType.Crafted; break
+      }
+    }
+
+    switch (match.groups!.type) {
+      case _$.PREFIX_MODIFIER:
+      case _$.FRACTURED_PREFIX:
+      case _$.CRAFTED_PREFIX:
+        generation = 'prefix'; break
+      case _$.SUFFIX_MODIFIER:
+      case _$.FRACTURED_SUFFIX:
+      case _$.CRAFTED_SUFFIX:
+        generation = 'suffix'; break
+      case _$.CORRUPTED_IMPLICIT:
+        generation = 'corrupted'; break
+      case _$.FOULBORN_MODIFIER:
+        generation = 'foulborn'; break
+    }
+
+    name = match.groups!.name ?? undefined
+    tier = Number(match.groups!.tier) || undefined
+    rank = Number(match.groups!.rank) || undefined
+  }
+
+  let tags: ModifierInfo['tags']
+  let rollIncr: ModifierInfo['rollIncr']
+  {
+    const incrText = (xText3 !== undefined)
+      ? xText3
+      : (xText2 !== undefined && _$.MODIFIER_INCREASED.test(xText2))
+          ? xText2
+          : undefined
+
+    const tagsText = (xText2 !== undefined && incrText !== xText2)
+      ? xText2
+      : undefined
+
+    tags = tagsText ? tagsText.split(', ') : []
+    rollIncr = incrText ? Number(_$.MODIFIER_INCREASED.exec(incrText)![1]) : undefined
+  }
+
+  return { type, generation, name, tier, rank, tags, rollIncr }
+}
+
+export function isModInfoLine (line: string): boolean {
+  return line.startsWith('{') && line.endsWith('}')
+}
+
+interface GroupedModLines {
+  modLine: string
+  statLines: string[]
+}
+
+export function * groupLinesByMod (lines: string[]): Generator<GroupedModLines, void> {
+  if (!lines.length || !isModInfoLine(lines[0])) {
+    return
+  }
+
+  let last: GroupedModLines | undefined
+  for (const line of lines) {
+    if (!isModInfoLine(line)) {
+      last!.statLines.push(line)
+    } else {
+      if (last) { yield last }
+      last = { modLine: line, statLines: [] }
+    }
+  }
+  yield last!
+}
+
+function removeLineSuffixes (lines: string[], suffixes: string[]): string[] {
+  return lines.map(line => {
+    for (const suffix of suffixes) {
+      if (line.endsWith(suffix)) {
+        return line.slice(0, -suffix.length).trim()
+      }
+    }
+
+    return line
+  })
+}
+
+export function parseModType (lines: string[]): { modType: ModifierType, generation?: ModifierInfo['generation'], lines: string[] } {
+  let modType: ModifierType
+  let generation: ModifierInfo['generation']
+
+  if (
+    lines.some(line =>
+      ENCHANT_LINES.some(x => line.endsWith(x))
+    )
+  ) {
+    modType = ModifierType.Enchant
+    lines = removeLineSuffixes(lines, ENCHANT_LINES)
+  } else if (
+    lines.some(line =>
+      SCOURGE_LINES.some(x => line.endsWith(x))
+    )
+  ) {
+    modType = ModifierType.Scourge
+    lines = removeLineSuffixes(lines, SCOURGE_LINES)
+  } else if (
+    lines.some(line =>
+      FRACTURED_LINES.some(x => line.endsWith(x))
+    )
+  ) {
+    modType = ModifierType.Fractured
+    lines = removeLineSuffixes(lines, FRACTURED_LINES)
+  } else if (
+    lines.some(line =>
+      IMPLICIT_LINES.some(x => line.endsWith(x))
+    )
+  ) {
+    modType = ModifierType.Implicit
+    lines = removeLineSuffixes(lines, IMPLICIT_LINES)
+  } else if (
+    lines.some(line =>
+      FOULBORN_LINES.some(x => line.endsWith(x))
+    )
+  ) {
+    modType = ModifierType.Explicit
+    generation = 'foulborn'
+    lines = removeLineSuffixes(lines, FOULBORN_LINES)
+  } else {
+    throw new Error('Expected to be used only on lines that have modifier type')
+  }
+
+  return { modType, generation, lines }
+}
+
+function removeLinesEnding (
+  lines: readonly string[], ending: string
+): string[] {
+  return lines.map(line =>
+    line.endsWith(ending)
+      ? line.slice(0, -ending.length)
+      : line
+  )
+}
+
+// stat values internally stored as ints,
+// this is the most common formatter
+const DIV_BY_100 = 2
+
+export function applyIncr (mod: ModifierInfo, parsed: ParsedStat): ParsedStat | null {
+  const { rollIncr } = mod
+  const { roll } = parsed
+
+  if (!rollIncr || !roll || roll.unscalable) {
+    return null
+  }
+
+  return {
+    stat: parsed.stat,
+    translation: parsed.translation,
+    roll: {
+      unscalable: roll.unscalable,
+      dp: roll.dp,
+      value: incrRoll(roll.value, rollIncr, (roll.dp) ? DIV_BY_100 : 0),
+      min: incrRoll(roll.min, rollIncr, (roll.dp) ? DIV_BY_100 : 0),
+      max: incrRoll(roll.max, rollIncr, (roll.dp) ? DIV_BY_100 : 0)
+    }
+  }
+}
+
+export function incrRoll (
+  value: number,
+  p: number,
+  dp: number
+): number {
+  const res = value + (value * p / 100)
+  const rounding = Math.pow(10, dp)
+  return Math.trunc((res + Number.EPSILON) * rounding) / rounding
+}

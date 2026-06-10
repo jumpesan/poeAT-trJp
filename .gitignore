@@ -44,3 +44,6 @@ logs/
 # tools are managed separately for now
 tools/
 icons/
+
+# vscode workspace
+*.code-workspace
