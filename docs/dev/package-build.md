@@ -25,16 +25,7 @@ app/main
 
 Run the commands below from the repository root unless a step says otherwise.
 
-## 1. Clean previous build outputs
-
-Remove old build outputs before creating a new package.
-
-```powershell
-Remove-Item .\app\renderer\dist -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item .\app\main\dist -Recurse -Force -ErrorAction SilentlyContinue
-```
-
-## 2. Install and build renderer
+## 1. Install and build renderer
 
 ```powershell
 Push-Location .\app\renderer
@@ -43,7 +34,7 @@ npm run build
 Pop-Location
 ```
 
-## 3. Install main process dependencies
+## 2. Install main process dependencies
 
 ```powershell
 Push-Location .\app\main
@@ -51,7 +42,7 @@ npm install
 Pop-Location
 ```
 
-## 4. Rebuild native dependencies for Electron
+## 3. Rebuild native dependencies for Electron
 
 `better-sqlite3` is a native dependency and must be rebuilt for the Electron runtime used by this project.
 
@@ -63,7 +54,7 @@ Pop-Location
 
 If the Electron version changes, update the `--target` value to match the Electron version used by `app/main/package.json`.
 
-## 5. Build main process
+## 4. Build main process
 
 ```powershell
 Push-Location .\app\main
@@ -71,7 +62,7 @@ npm run build
 Pop-Location
 ```
 
-## 6. Package the application
+## 5. Package the application
 
 ```powershell
 Push-Location .\app\main
@@ -93,5 +84,3 @@ After packaging completes, confirm the following manually:
 ## Notes
 
 This project currently uses local package verification instead of a required GitHub Actions status check.
-
-The helper script under `tools/` follows this same general flow, but this document describes the underlying commands for developers who want to understand or troubleshoot the packaging process.
