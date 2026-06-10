@@ -1,6 +1,6 @@
 {
   "name": "poe-at-tr-jp",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Unofficial Japanese localization fork of Awakened PoE Trade",
   "private": true,
   "scripts": {
