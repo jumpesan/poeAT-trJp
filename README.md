@@ -5,6 +5,8 @@ Japanese fork of Awakened PoE Trade for Path of Exile.
 > ⚠ This project is currently under active development. Features and data formats may change without notice.
 >
 > Current Status: Experimental / Work In Progress
+>
+> Current Target Platform: Windows
 
 ## About
 
@@ -13,6 +15,8 @@ This project is a fork of Awakened PoE Trade.
 The goal of this fork is to improve the experience for Japanese Path of Exile players through localization improvements and additional quality-of-life features.
 
 This project is not affiliated with the original Awakened PoE Trade project or its maintainers.
+
+This project is currently developed and tested for Windows only.
 
 ## Features
 
@@ -47,6 +51,8 @@ Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡
 > ⚠ 本プロジェクトは現在開発中です。機能やデータ形式は予告なく変更される場合があります。
 >
 > 現在の状態: 開発中（Experimental / Work In Progress）
+>
+> 現在の対象環境: Windows
 
 ## 概要
 
@@ -55,6 +61,8 @@ Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡
 日本語環境でより快適に利用できることを目標に、日本語化の改善と独自機能の追加を行っています。
 
 本プロジェクトは Awakened PoE Trade の公式プロジェクトではありません。
+
+本プロジェクトは現在、Windows環境向けに開発・動作確認を行っています。
 
 ## 主な機能
 
