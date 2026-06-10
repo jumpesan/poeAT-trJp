@@ -1,0 +1,46 @@
+# local/vendor/reference repos
+PathOfBuilding-dev/
+PyPoE-dev/
+RePoE-master/
+
+# local experiments / backups
+backup/
+old/
+patch/
+manual-overrides-backup/
+
+# Python
+.venv*/
+__pycache__/
+*.pyc
+
+# Node / Electron
+node_modules/
+dist/
+build/
+out/
+
+# logs
+*.log
+logs/
+
+# env / secrets
+.env
+.env.*
+*.cookie
+*cookies*
+*POESESSID*
+*CF_CLEARANCE*
+
+# local db / snapshots
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+
+# tools are managed separately for now
+tools/
+icons/
