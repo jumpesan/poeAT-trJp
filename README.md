@@ -20,6 +20,17 @@ This project is currently developed and tested for Windows only.
 
 ## Features
 
+### Core Features
+
+The following core features are inherited from Awakened PoE Trade.
+
+- Price Check
+- Modifier Search
+- Trade Market Integration
+- Item Information Overlay
+
+Credit for these core features belongs to the original Awakened PoE Trade project and its contributors.
+
 ### Localization
 
 - Enhanced Japanese translations
@@ -65,6 +76,17 @@ Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡
 本プロジェクトは現在、Windows環境向けに開発・動作確認を行っています。
 
 ## 主な機能
+
+### 基本機能
+
+以下の基本機能は Awakened PoE Trade をベースとしています。
+
+- 価格チェック
+- MOD検索
+- トレードサイト連携
+- アイテム情報オーバーレイ
+
+これらの基本機能は元プロジェクトである Awakened PoE Trade およびそのコントリビューターによって開発されたものです。
 
 ### 日本語化
 
