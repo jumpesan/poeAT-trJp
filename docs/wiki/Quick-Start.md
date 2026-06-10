@@ -7,37 +7,125 @@
 
 This page explains the basic flow after installing poeAT-trJp.
 
-Detailed screenshots and explanations can be added later.
+poeAT-trJp can be used as an overlay while Path of Exile is active.
 
-## Basic Flow
+## 1. Start Path of Exile and poeAT-trJp
 
-1. Start Path of Exile.
-2. Start poeAT-trJp.
-3. Open the settings window if needed.
-4. Confirm the basic hotkeys.
-5. Move your mouse cursor over an item in Path of Exile.
-6. Press the price check hotkey.
-7. Check the displayed result.
+Start Path of Exile and poeAT-trJp.
 
-## First Feature to Try
+When Path of Exile becomes the active window, the overlay is displayed.
 
-The first feature to try is Price Check.
+![Overlay sample](./image1.png)
 
-Basic usage:
+## 2. Open the widget menu
 
-1. Open your inventory or stash in Path of Exile.
-2. Move your mouse cursor over an item.
-3. Press the configured price check hotkey.
-4. Review the search result and filters.
+Press `Shift + Space` to activate poeAT-trJp.
 
-## Other Features
+Select the widget or feature you want to use from the widget menu.
 
-After confirming that Price Check works, try the other features as needed.
+![Widget menu](./image2.png)
 
-- Inventory Snapshot
-- Stash Snapshot
-- Map Run Timer
-- Item Value Tracking
+## 3. Open settings
+
+Open the settings window when you need to configure the application.
+
+![Settings window](./image3.png)
+
+In the General settings, configure the Path of Exile log file.
+
+In most cases, the log file can be configured automatically by pressing the auto-detect button.
+
+## 4. Configure PoE login and stash check
+
+If you want to use the snapshot features, configure the Stash Check / PoE Login settings.
+
+![Stash check settings](./image4.png)
+
+Press the login button to open the internal browser.
+
+The Path of Exile official login page will be displayed. Log in there.
+
+When login is detected, the login window closes automatically after a short delay.
+
+poeAT-trJp uses poe.ninja price data.
+
+When a snapshot is taken, price data is automatically updated if the current data is old.
+
+Manual update is only needed when you want to control the update timing yourself.
+
+## 5. Configure snapshot targets
+
+![Snapshot settings](./image5.png)
+
+Set the automatic snapshot interval.
+
+Available options:
+
+- OFF
+- 15 minutes
+- 30 minutes
+- 60 minutes
+
+Use the character list update button to select snapshot target characters.
+
+You can select one specific character or all characters.
+
+Use the target stash tab update button to fetch your stash tab list.
+
+After the list is loaded, select the stash tabs you want to include.
+
+## 6. Check snapshot results
+
+![Snapshot sample](./image6.png)
+
+The snapshot list shows:
+
+- Snapshot time
+- Difference from the previous snapshot
+- Number of map entries since the previous snapshot
+
+Currently, value difference support is limited mainly to currency exchange items.
+
+Right-click a snapshot to show the delete button.
+
+Hold the delete button to delete the snapshot.
+
+Press the arrow button to open snapshot details. Press it again to close the details.
+
+## 7. Configure Map Run Timer
+
+![Map timer settings](./image7.png)
+
+The Map Run Timer settings can configure:
+
+- Fastest time display
+- Average time display
+- Number of past times to show
+- Widget opacity
+
+## 8. Manage recorded map times
+
+![Map timer history](./image8.png)
+
+Right-click a recorded time to show the delete button.
+
+Hold the delete button to delete the recorded time.
+
+## 9. Map timer usage sample
+
+![Map timer sample](./image9.png)
+
+Use this widget to track map run times while playing.
+
+## 10. Price Check
+
+![Price check sample](./image10.png)
+
+Price Check is inherited from the original Awakened PoE Trade behavior.
+
+Move your cursor over the item you want to check and press `Ctrl + D`.
+
+You can enable or disable modifiers as needed before searching.
 
 ## If Something Does Not Work
 
@@ -51,37 +139,131 @@ If the application does not start or the overlay does not appear, check FAQ.
 
 このページでは、poeAT-trJp をインストールした後の基本的な流れを説明します。
 
-細かいスクリーンショットや説明は後で追加予定です。
+poeAT-trJp は Path of Exile の画面上で使用するオーバーレイツールです。
 
-## 基本的な流れ
+## 1. Path of Exile と poeAT-trJp を起動する
 
-1. Path of Exile を起動します。
-2. poeAT-trJp を起動します。
-3. 必要に応じて設定画面を開きます。
-4. 基本的なショートカットキーを確認します。
-5. Path of Exile 上でアイテムにマウスカーソルを合わせます。
-6. 価格チェックのショートカットキーを押します。
-7. 表示された結果を確認します。
+Path of Exile と poeAT-trJp を起動します。
 
-## 最初に試す機能
+起動した状態で Path of Exile の画面がアクティブになると、オーバーレイが表示されます。
 
-最初に試す機能は価格チェックです。
+![オーバーレイ表示例](./image1.png)
 
-基本的な使い方:
+## 2. ウィジェットメニューを開く
 
-1. Path of Exile でインベントリまたはスタッシュを開きます。
-2. アイテムにマウスカーソルを合わせます。
-3. 設定されている価格チェックのショートカットキーを押します。
-4. 検索結果とフィルター内容を確認します。
+`Shift + Space` を押すと poeAT-trJp がアクティブになります。
 
-## その他の機能
+表示されたウィジェットメニューから、利用したい項目を選択します。
 
-価格チェックが動作することを確認したら、必要に応じて他の機能を試してください。
+![ウィジェットメニュー](./image2.png)
 
-- インベントリスナップショット
-- スタッシュスナップショット
-- マップランタイマー
-- アイテム価値追跡
+## 3. 設定画面を開く
+
+必要に応じて設定画面を開きます。
+
+![設定画面](./image3.png)
+
+「一般」から Path of Exile のログファイルを設定してください。
+
+「PoEファイルを自動設定」を押すことで、ほとんどの場合は自動で設定されます。
+
+## 4. スタッシュチェックとPoEログインを設定する
+
+スナップショット機能を利用したい場合は、スタッシュチェックとPoEログインを設定してください。
+
+![スタッシュチェック設定](./image4.png)
+
+PoEログインのログインボタンを押すと、内部ブラウザで Path of Exile 公式サイトのログイン画面が表示されます。
+
+公式サイトにログインしてください。
+
+ログインが検知されると、約2秒後にウィンドウが自動で閉じます。
+
+poeAT-trJp は poe.ninja から価格情報を取得します。
+
+スナップショット取得時に価格データが古い場合は、自動で最新データに更新されます。
+
+更新タイミングを変更したい場合のみ、手動更新を実行してください。
+
+## 5. スナップショット対象を設定する
+
+![スナップショット設定](./image5.png)
+
+自動スナップショット取得間隔を設定します。
+
+選択肢:
+
+- OFF
+- 15分
+- 30分
+- 60分
+
+「キャラクターリスト更新」を押すことで、スナップショット対象キャラクターを選択できます。
+
+指定した1キャラクター、または全てのキャラクターを選択できます。
+
+選択後、決定を押してください。
+
+「対象スタッシュタブ更新」を押すことで、あなたのスタッシュタブ一覧を取得します。
+
+一覧取得後、対象にしたいスタッシュタブにチェックを入れてください。
+
+選択後、決定を押してください。
+
+## 6. スナップショット結果を確認する
+
+![スナップショット結果](./image6.png)
+
+スナップショット一覧では以下を確認できます。
+
+- 取得した日時
+- 前回取得時との差額
+- 前回取得時からのマップ入場回数
+
+差額に対応しているアイテムは、現在カレンシー交換品が中心です。
+
+スナップショットを右クリックすると削除ボタンが表示されます。
+
+削除ボタンを長押しすると、対象のスナップショットを削除できます。
+
+矢印を押すと、取得したスナップショットの詳細を確認できます。
+
+もう一度押すことで詳細を閉じます。
+
+## 7. マップタイマーを設定する
+
+![マップタイマー設定](./image7.png)
+
+マップタイマーでは以下を設定できます。
+
+- 最速タイムの表示
+- 平均タイムの表示
+- 過去タイムの表示数
+- ウィジェットの透過度
+
+## 8. 記録されたマップタイムを管理する
+
+![マップタイマー履歴](./image8.png)
+
+対象のタイムを右クリックすると削除ボタンが表示されます。
+
+削除ボタンを長押しすると、対象のタイムを削除できます。
+
+## 9. マップタイマーの使用サンプル
+
+![マップタイマー使用例](./image9.png)
+
+マップ周回中のタイム計測に利用できます。
+
+## 10. 価格チェックを使う
+
+![価格チェック](./image10.png)
+
+価格チェックは Awakened PoE Trade 本家と同様の基本機能です。
+
+価格を調べたいアイテムにカーソルを合わせ、`Ctrl + D` を押すことで価格を確認できます。
+
+必要に応じて MOD のオン・オフが可能です。
 
 ## うまく動かない場合
 
