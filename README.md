@@ -2,6 +2,14 @@
 
 Japanese fork of Awakened PoE Trade for Path of Exile.
 
+## Download
+
+https://github.com/jumpesan/poeAT-trJp/releases
+
+## Documentation
+
+https://github.com/jumpesan/poeAT-trJp/wiki
+
 > ⚠ This project is currently under active development. Features and data formats may change without notice.
 >
 > Current Status: Experimental / Work In Progress
@@ -58,6 +66,14 @@ Credit for these core features belongs to the original Awakened PoE Trade projec
 # poeAT-trJp
 
 Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡張フォークです。
+
+## ダウンロード
+
+https://github.com/jumpesan/poeAT-trJp/releases
+
+## 使い方
+
+https://github.com/jumpesan/poeAT-trJp/wiki
 
 > ⚠ 本プロジェクトは現在開発中です。機能やデータ形式は予告なく変更される場合があります。
 >
