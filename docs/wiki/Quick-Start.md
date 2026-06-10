@@ -15,7 +15,7 @@ Start Path of Exile and poeAT-trJp.
 
 When Path of Exile becomes the active window, the overlay is displayed.
 
-![Overlay sample](./image1.png)
+![Overlay sample](./images/overlay-active.png)
 
 ## 2. Open the widget menu
 
@@ -23,13 +23,13 @@ Press `Shift + Space` to activate poeAT-trJp.
 
 Select the widget or feature you want to use from the widget menu.
 
-![Widget menu](./image2.png)
+![Widget menu](./images/widget-menu.png)
 
 ## 3. Open settings
 
 Open the settings window when you need to configure the application.
 
-![Settings window](./image3.png)
+![Settings window](./images/settings-general.png)
 
 In the General settings, configure the Path of Exile log file.
 
@@ -39,7 +39,7 @@ In most cases, the log file can be configured automatically by pressing the auto
 
 If you want to use the snapshot features, configure the Stash Check / PoE Login settings.
 
-![Stash check settings](./image4.png)
+![Stash check settings](./images/stash-check-login.png)
 
 Press the login button to open the internal browser.
 
@@ -55,7 +55,7 @@ Manual update is only needed when you want to control the update timing yourself
 
 ## 5. Configure snapshot targets
 
-![Snapshot settings](./image5.png)
+![Snapshot settings](./images/snapshot-targets.png)
 
 Set the automatic snapshot interval.
 
@@ -76,7 +76,7 @@ After the list is loaded, select the stash tabs you want to include.
 
 ## 6. Check snapshot results
 
-![Snapshot sample](./image6.png)
+![Snapshot sample](./images/snapshot-results.png)
 
 The snapshot list shows:
 
@@ -94,7 +94,7 @@ Press the arrow button to open snapshot details. Press it again to close the det
 
 ## 7. Configure Map Run Timer
 
-![Map timer settings](./image7.png)
+![Map timer settings](./images/map-timer-settings.png)
 
 The Map Run Timer settings can configure:
 
@@ -105,7 +105,7 @@ The Map Run Timer settings can configure:
 
 ## 8. Manage recorded map times
 
-![Map timer history](./image8.png)
+![Map timer history](./images/map-timer-history.png)
 
 Right-click a recorded time to show the delete button.
 
@@ -113,13 +113,13 @@ Hold the delete button to delete the recorded time.
 
 ## 9. Map timer usage sample
 
-![Map timer sample](./image9.png)
+![Map timer sample](./images/map-timer-sample.png)
 
 Use this widget to track map run times while playing.
 
 ## 10. Price Check
 
-![Price check sample](./image10.png)
+![Price check sample](./images/price-check.png)
 
 Price Check is inherited from the original Awakened PoE Trade behavior.
 
@@ -147,7 +147,7 @@ Path of Exile と poeAT-trJp を起動します。
 
 起動した状態で Path of Exile の画面がアクティブになると、オーバーレイが表示されます。
 
-![オーバーレイ表示例](./image1.png)
+![オーバーレイ表示例](./images/overlay-active.png)
 
 ## 2. ウィジェットメニューを開く
 
@@ -155,13 +155,13 @@ Path of Exile と poeAT-trJp を起動します。
 
 表示されたウィジェットメニューから、利用したい項目を選択します。
 
-![ウィジェットメニュー](./image2.png)
+![ウィジェットメニュー](./images/widget-menu.png)
 
 ## 3. 設定画面を開く
 
 必要に応じて設定画面を開きます。
 
-![設定画面](./image3.png)
+![設定画面](./images/settings-general.png)
 
 「一般」から Path of Exile のログファイルを設定してください。
 
@@ -171,7 +171,7 @@ Path of Exile と poeAT-trJp を起動します。
 
 スナップショット機能を利用したい場合は、スタッシュチェックとPoEログインを設定してください。
 
-![スタッシュチェック設定](./image4.png)
+![スタッシュチェック設定](./images/stash-check-login.png)
 
 PoEログインのログインボタンを押すと、内部ブラウザで Path of Exile 公式サイトのログイン画面が表示されます。
 
@@ -187,7 +187,7 @@ poeAT-trJp は poe.ninja から価格情報を取得します。
 
 ## 5. スナップショット対象を設定する
 
-![スナップショット設定](./image5.png)
+![スナップショット設定](./images/snapshot-targets.png)
 
 自動スナップショット取得間隔を設定します。
 
@@ -212,7 +212,7 @@ poeAT-trJp は poe.ninja から価格情報を取得します。
 
 ## 6. スナップショット結果を確認する
 
-![スナップショット結果](./image6.png)
+![スナップショット結果](./images/snapshot-results.png)
 
 スナップショット一覧では以下を確認できます。
 
@@ -232,7 +232,7 @@ poeAT-trJp は poe.ninja から価格情報を取得します。
 
 ## 7. マップタイマーを設定する
 
-![マップタイマー設定](./image7.png)
+![マップタイマー設定](./images/map-timer-settings.png)
 
 マップタイマーでは以下を設定できます。
 
@@ -243,7 +243,7 @@ poeAT-trJp は poe.ninja から価格情報を取得します。
 
 ## 8. 記録されたマップタイムを管理する
 
-![マップタイマー履歴](./image8.png)
+![マップタイマー履歴](./images/map-timer-history.png)
 
 対象のタイムを右クリックすると削除ボタンが表示されます。
 
@@ -251,13 +251,13 @@ poeAT-trJp は poe.ninja から価格情報を取得します。
 
 ## 9. マップタイマーの使用サンプル
 
-![マップタイマー使用例](./image9.png)
+![マップタイマー使用例](./images/map-timer-sample.png)
 
 マップ周回中のタイム計測に利用できます。
 
 ## 10. 価格チェックを使う
 
-![価格チェック](./image10.png)
+![価格チェック](./images/price-check.png)
 
 価格チェックは Awakened PoE Trade 本家と同様の基本機能です。
 
