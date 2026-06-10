@@ -5,6 +5,8 @@ Japanese fork of Awakened PoE Trade for Path of Exile.
 > ⚠ This project is currently under active development. Features and data formats may change without notice.
 >
 > Current Status: Experimental / Work In Progress
+>
+> Current Target Platform: Windows
 
 ## About
 
@@ -14,7 +16,20 @@ The goal of this fork is to improve the experience for Japanese Path of Exile pl
 
 This project is not affiliated with the original Awakened PoE Trade project or its maintainers.
 
+This project is currently developed and tested for Windows only.
+
 ## Features
+
+### Core Features
+
+The following core features are inherited from Awakened PoE Trade.
+
+- Price Check
+- Modifier Search
+- Trade Market Integration
+- Item Information Overlay
+
+Credit for these core features belongs to the original Awakened PoE Trade project and its contributors.
 
 ### Localization
 
@@ -47,6 +62,8 @@ Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡
 > ⚠ 本プロジェクトは現在開発中です。機能やデータ形式は予告なく変更される場合があります。
 >
 > 現在の状態: 開発中（Experimental / Work In Progress）
+>
+> 現在の対象環境: Windows
 
 ## 概要
 
@@ -56,7 +73,20 @@ Path of Exile 向けツール「Awakened PoE Trade」の日本語化・機能拡
 
 本プロジェクトは Awakened PoE Trade の公式プロジェクトではありません。
 
+本プロジェクトは現在、Windows環境向けに開発・動作確認を行っています。
+
 ## 主な機能
+
+### 基本機能
+
+以下の基本機能は Awakened PoE Trade をベースとしています。
+
+- 価格チェック
+- MOD検索
+- トレードサイト連携
+- アイテム情報オーバーレイ
+
+これらの基本機能は元プロジェクトである Awakened PoE Trade およびそのコントリビューターによって開発されたものです。
 
 ### 日本語化
 
