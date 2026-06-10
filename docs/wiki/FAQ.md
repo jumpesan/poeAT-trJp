@@ -55,9 +55,9 @@ Check the hotkey settings in poeAT-trJp.
 
 If another application uses the same hotkey, change the hotkey and try again.
 
-## Where should I report issues?
+## Where can I report problems or requests?
 
-Use GitHub Issues after the repository is public.
+Please use [GitHub Issues](https://github.com/jumpesan/poeAT-trJp/issues) for bug reports, questions, and feature requests.
 
 ---
 
@@ -115,6 +115,6 @@ poeAT-trJp のショートカット設定を確認してください。
 
 他のアプリとショートカットキーが重複している場合は、別のキーに変更して再度試してください。
 
-## 不具合はどこに報告すればいいですか？
+## 不具合や要望はどこに報告すればいいですか？
 
-リポジトリを公開後、GitHub Issues から報告してください。
+不具合報告、質問、機能要望は [GitHub Issues](https://github.com/jumpesan/poeAT-trJp/issues) からお願いします。
