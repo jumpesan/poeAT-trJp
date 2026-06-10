@@ -1,0 +1,37 @@
+publish: null
+appId: "com.jumpesan.poe-at-tr-jp"
+productName: "poeAT-trJp"
+npmRebuild: false
+toolsets:
+  appimage: 1.0.3
+artifactBuildCompleted: "build/apprun-patch.test.mjs"
+files:
+  - "package.json"
+  - from: "dist"
+    to: "."
+    filter: ["main.js", "vision.js"]
+  - from: "../renderer/dist"
+    to: "."
+extraMetadata:
+  main: "main.js"
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  shortcutName: "poeAT-trJp"
+  uninstallDisplayName: "poeAT-trJp"
+  artifactName: "${productName} Setup ${version}.${ext}"
+win:
+  target:
+  - "nsis"
+  - "portable"
+  artifactName: "${productName} ${version}.${ext}"
+linux:
+  target:
+  - "AppImage"
+mac:
+  target:
+  - target: "dmg"
+    arch:
+    - "universal"
+  identity: null
+  x64ArchFiles: "*"
